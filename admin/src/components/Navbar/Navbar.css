@@ -1,0 +1,266 @@
+/* Define the keyframes for glowing effect */
+@keyframes glow {
+    0% {
+      box-shadow: 0 0 10px 3px rgba(0, 123, 255, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 20px 10px rgba(0, 123, 255, 0.3);
+    }
+    100% {
+      box-shadow: 0 0 10px 3px rgba(0, 123, 255, 0.7);
+    }
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+  }
+  
+  .navbar .logo {
+    width: max(10%, 220px);
+  }
+  
+  #visual-toggle-button {
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* checkbox */
+  #visual-toggle {
+    appearance: none;
+    display: none;
+  }
+  
+  .svgIcon-toggle {
+    width: 25px;
+  }
+  
+  .moon-svg {
+    width: 13px;
+    position: absolute;
+    transition: all .3s;
+  }
+  
+  .sun-svg {
+    opacity: 0;
+    transition: all .3s;
+  }
+  
+  .lightmode .sun-svg {
+    filter: brightness(0);
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+  
+  .lightmode .moon-svg {
+    opacity: 0;
+  }
+  
+  .animate .moon-svg {
+    transform: rotate(360deg);
+    transition: all .3s;
+  }
+  
+  .logout-button {
+    background-color: #4a4e57; /* Matches the button background from the image */
+    color: white;
+    border: none;
+    padding: 8px 20px; /* Padding for a pill shape */
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 25px; /* Rounded corners for the pill shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none; /* No shadow by default */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    /* Removed animation from the default state */
+  }
+  
+  .logout-button:hover {
+    background-color: #40434a; /* Slightly darker color on hover */
+    transform: scale(1.05); /* Slightly scale the button on hover */
+    animation: glow 1.5s ease-in-out infinite; /* Apply the glow animation on hover */
+  }
+  
+  .logout-button:active {
+    background-color: #40434a;
+    box-shadow: none; /* No glow on active state */
+  }
+  
+  /* DARK MODE FOR PRODUCTNAME & PRODUCTDESCRIPTION */
+  :root .add-product-name input,
+  :root .add-product-description textarea {
+    background-color: var(--background-root);
+    border: var(--border-root);
+    padding: var(--padding-root);
+    color: white;
+  }
+  
+  /* LIGHT MODE FOR PRODUCTNAME & PRODUCTDESCRIPTION */
+  .lightcolors .add-product-name input,
+  .lightcolors .add-product-description textarea {
+    background-color: white;
+    border: 2px solid gray;
+    color: black;
+  }
+  
+  /* Color variables for dark and light mode */
+  :root {
+    --input-color: black;
+    --background-root: black;
+    --border-root: 2px solid white;
+    --padding-root: 10px;
+    --upload: brightness(1) invert(1); /* Added a custom variable */
+    --logos-filter: brightness(0) invert(1); /* Added a custom variable */
+    --sidebar: black;
+    --border-color: #27272a;
+    --nav-color-one: #0d0d179a;
+    --nav-color-two: #0d0618;
+    --body-color: #121212;
+    --dark-text: #101010;
+    --light-text: #ffffff;
+    --light-text-secondary: #b9b9b9;
+    --light-text-desc: #d8d8d8;
+  }
+  
+  /* For lightcolors */
+  .lightcolors {
+    --sidebar: #ffffff;
+    --body-color: #FFFFFF;
+    --dark-text: #fff;
+    --light-text: #101010;
+    --nav-color-two: #f6f6f2;
+    --nav-color-one: #f1f1f17e;
+    --border-color: #ddd;
+    --light-text-secondary: #464853;
+    --light-text-desc: #020202;
+    --cards-text-color: #fff; /* White text color for cards container */
+  }
+  
+  /* Reset filter for images with class "image" in light mode */
+  .lightcolors label img.image {
+    filter: none; /* Reset filter for images with class "image" in light mode */
+  }
+  
+  :root .logo {
+    filter: var(--logos-filter);
+  }
+  
+  .lightcolors .logo {
+    filter: none;
+  }
+  
+  :root .addd {
+    filter: var(--logos-filter);
+  }
+  
+  .lightcolors .addd {
+    filter: none;
+  }
+  
+  :root .listt {
+    filter: var(--logos-filter);
+  }
+  
+  .lightcolors .listt {
+    filter: none;
+  }
+  
+  :root .orderr {
+    filter: var(--logos-filter);
+  }
+  
+  .lightcolors .orderr {
+    filter: none;
+  }
+  
+  :root p {
+    color: var(--light-text);
+  }
+  
+  .lightcolors p {
+    filter: none;
+  }
+  
+  :root .list-table-format.title {
+    background-color: var(--body-color);
+  }
+  
+  .lightcolors .list-table-format.title {
+    filter: none;
+  }
+  
+  :root .add-product-name input:focus,
+  :root .add-product-description textarea:focus {
+    outline: black;
+  }
+  
+  .lightmode .add-product-name input:focus,
+  .lightmode .add-product-description textarea:focus {
+    outline: black;
+  }
+  
+  /* DARK MODE FOR PRODUCTNAME & PRODUCTDESCRIPTION */
+  :root .add-product-name input,
+  :root .add-product-description textarea {
+    background-color: var(--background-root);
+    border: var(--border-root);
+    padding: var(--padding-root);
+    color: white; /* Add this line to set text color to white */
+  }
+  
+  /* LIGHT MODE FOR PRODUCTNAME & PRODUCTDESCRIPTION */
+  .lightcolors .add-product-name input,
+  .lightcolors .add-product-description textarea {
+    background-color: white; /* Background color for light mode */
+    border: 2px solid gray; /* Border color for light mode */
+    color: black;
+  }
+  
+  :root .add-product-name input::placeholder,
+  :root .add-product-description textarea::placeholder {
+    color: gray; /* Set the placeholder text color to white */
+  }
+  
+  .lightcolors .add-product-name input::placeholder,
+  .lightcolors .add-product-description textarea::placeholder {
+    color: black;
+  }
+  
+  :root .inputclasa,
+  :root .selectt {
+    color: white;
+    border: 1px solid white;
+    background-color: black;
+  }
+  
+  .lightcolors .inputclasa,
+  .lightcolors .selectt {
+    border: 1px solid gray;
+    background-color: transparent;
+    color: black;
+  }
+  
+  :root .inputclasa::placeholder,
+  :root .selectt::placeholder {
+    color: gray;
+  }
+  
+  :root .profile {
+    filter: var(--logos-filter);
+  }
+  
+  .lightcolors .profile {
+    filter: none;
+  }
+  

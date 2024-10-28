@@ -1,0 +1,85 @@
+.sidebar {
+    width: 18%;
+    min-height: 100vh;
+    border: 1.5px solid #a9a9a9;
+    border-top: 0;
+    font-size: max(1vw, 10px);
+}
+
+/* Sidebar Options Container */
+.sidebar-options {
+    padding-top: 50px;
+    padding-left: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Sidebar Option */
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #a9a9a9;
+    border-right: 0;
+    padding: 8px 10px;
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+    background-color: transparent; /* Default background color */
+    color: var(--sidebar-text); /* Dynamic text color based on mode */
+    position: relative; /* Required for pseudo-element positioning */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Pulsing Glow Effect */
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+}
+
+.sidebar-option:hover {
+    background-color: transparent; /* Keep background color normal */
+    animation: pulse-glow 1.5s infinite; /* Pulsing glow effect */
+}
+
+/* Active Effect */
+.sidebar-option.active {
+    background-color: var(--sidebar); /* Background color when active */
+    border-color: #49557e; /* Border color when active */
+    animation: none; /* No animation when active */
+}
+
+/* Dark mode text and background */
+:root .sidebar-option {
+    color: white; /* Text color in dark mode */
+    background-color: transparent;
+}
+
+.lightcolors .sidebar-option {
+    color: black; /* Text color in light mode */
+    background-color: transparent;
+}
+
+/* Ensure active and hover styles also work well in both modes */
+:root .sidebar-option.active {
+    background-color: var(--sidebar);
+    color: white;
+}
+
+.lightcolors .sidebar-option.active {
+    background-color: var(--sidebar-bg);
+    color: black;
+}
+
+@media (max-width: 900px) {
+    .sidebar-option p {
+        display: none;
+    }    
+}
